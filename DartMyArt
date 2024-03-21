@@ -1,0 +1,114 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+   MaterialApp(
+     home: Scaffold(
+      appBar: AppBar(
+       title:Text("MyArt"),
+        backgroundColor: Colors.white,
+     ),
+        body: Padding(
+          padding: EdgeInsets.all (2.0),
+        child: Row(
+         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+         children: [
+           MyArt(
+            imageUrl:  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTNlM3ViMGw3NTBzMzhlb3ZiYjJqeWVscW9sZG00NG9hdzhkOGYzMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/moQgs37NX9z7W/giphy.gif",
+          ),
+          Column(
+           children: [
+            SizedBox(
+              width : 40,
+              height: 80, // Adjusted height value
+              child: Image.network
+                ("https://www.freepik.com/free-vector/hand-drawn-paris-elements_904472.htm#&position=1&from_view=search&track=ais&uuid=f87f0f89-9396-4906-8104-bf0609699441",
+                ),
+               ),
+             
+                 SizedBox(height: 4),
+                 Text(
+                   "Everything has its beauty, but not everyone sees it. – Andy Warhol",
+          textAlign: TextAlign.start,
+          style: TextStyle(
+           fontFamily: "Karantina",
+           fontSize: 18,
+           fontStyle: FontStyle.normal,
+         ),
+        ),
+       ],
+      ),
+      Column(
+             children: [
+               SizedBox(
+                 width : 40,
+                 height: 80, // Adjusted height value    
+                 child: Image.network
+           ("https://www.freepik.com/free-photo/famous-abbey-senanqu)-france_10488790.htm#fromView=search&page=1&position=37&uuid=6104301b-efe5-450b-92a5-bb4ad3e638f5",
+         ),
+        ),
+       ],
+      ),
+      Column(
+             children: [
+               SizedBox(
+                 width : 40,
+                 height: 80, // Adjusted height value
+                 child: Image.network
+             ("https://www.freepik.com/free-photo/view-toledo-with-puente-de-alcantara_1329962.htm#&position=23&from_view=search&track=ais&uuid=934680b0-b6f5-4df8-8afd-1ccbe825c2bb",
+           ),
+          ), 
+         ], 
+        ), 
+       ], 
+      ), 
+     ), 
+    ),
+   ), 
+  ); 
+}
+
+class MyArt extends StatelessWidget {
+  final String imageUrl;
+  
+  const MyArt({Key? key, required this.imageUrl}) : super(key: key);
+  
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+    onTap: () {
+      // Navigate to a new screen when the image is tapped
+      Navigator.push(
+        context,
+      MaterialPageRoute(
+       builder: (context) => DetailsScreen(imageUrl: imageUrl), 
+     ),
+   );  
+ },
+    child: Image.network("https://www.freepik.com/free-photo/closeup-shot-cochem-streets-germany_17243786.htm#&position=4&from_view=search&track=ais&uuid=1e85cdaa-b4bd-400c-b4a1-ebe193d700f2",
+                   
+      width: 40,
+      height: 80, // Adjusted height value
+      fit: BoxFit.fitHeight
+    ),
+  );
+ }
+}  
+class DetailsScreen extends StatelessWidget {
+  final String imageUrl;
+  
+  const DetailsScreen({Key? key, required this.imageUrl}) : super(key: key);
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+     appBar: AppBar(
+     title: Text("CofeeShop")
+   ),
+   body: Center(
+    child: Image.network("https://www.freepik.com/premium-photo/chairs-table-empty-terrace-cafe_59042119.htm#&position=34&from_view=search&track=ais&uuid=f4bb83bc-a872-4679-bed8-94d884f4a9d8",
+    ),
+   ),
+  );
+ }
+}
